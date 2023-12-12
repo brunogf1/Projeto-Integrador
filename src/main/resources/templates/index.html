@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"> 
+    <head>
+        <title>Página Inicial</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous"> 
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    </head>
+                    <body>
+
+                        <div class="container-fluid ">
+                            <div id="logo" class="row ">
+                                <div class="col-12">
+                                   <img th:src="@{/images/logo.avif}" height="150px"/>
+                                    <h2>HAMBURGUERIA</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container mb-5">
+                            <div class="row mt-4">
+                                <div class="col-sm-6 ms-5 border border-black">
+                                    <div id="menu" class="row">
+                                        <div class="col-sm-2">
+                                            <button id="btnProdutos" class="botaoMenu" >Produtos</button>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button id="btnHorarios" class="botaoMenu" >Horários</button>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button id="btnInformacoes" class="botaoMenu" >Informações</button>
+                                        </div>
+                                    </div>
+                                    <div id="conteudo1">
+                                        <table class = "table mt-3"> 
+                                            <thead> 
+                                                <tr> 
+                                                    <th>Nome</th> 
+                                                    <th>Descrição</th> 
+                                                    <th>Valor</th>  
+                                                </tr> 
+                                            </thead> 
+                                            <tbody> 
+                                                <tr th:each="produto : ${lista}"> 
+                                                    <td th:text="${produto.id}"></td> 
+                                                    <td th:text="${produto.nome}"></td> 
+                                                    <td th:text="${produto.descricao}"></td> 
+                                                    <td th:text="${produto.valor}"></td> 
+                                                </tr> 
+                                            </tbody> 
+                                        </table> 
+                                    </div>
+                                    <div id="conteudo2" class="row ">
+                                        <div class="row border-bottom">
+                                            <p class="mt-2 mb-2">segunda: 11:30 - 14:00</p>
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <p class="mt-2 mb-2">terça: 11:30 - 14, 18:30 - 22:00</p>
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <p class=" mt-2 mb-2">quarta: 11:30 - 14, 18:30 - 22:00</p>
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <p class=" mt-2 mb-2"> quinta: 11:30 - 14, 18:30 - 22:00</p>
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <p class="mt-2 mb-2">sexta: 11:30 - 14, 18:30 - 22:00</p>
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <p class="mt-2 mb-2">sábado: 11:30 - 14, 18:30 - 22:00</p>
+                                        </div>
+                                        <div class="row border-bottom">
+                                            <p class="mt-2 mb-2">domingo: 18:30 - 22:00</p>
+                                        </div>
+                                    </div>
+                                    <div id="conteudo3">
+                                        <p class="mt-3">Rua Fictícia - 1010 Bairro: Fictício - Cidade Fictícia/RS</p>
+                                        <p>Estimativa de retirada: 30 minutos</p>
+                                        <p>Estimativa de entrega: 60 minutos</p> 
+                                        <div class="row border-bottom"></div>
+                                        <h4 class="mt-2 mb-2">Formas de Pagamento:</h4>
+                                        <p><img th:src="@{/images/dinheiro.avif}" height="30px" width="30px"/>Dinheiro</p>
+                                        <p><img th:src="@{/images/pix.png}" height="30px" width="30px"/>Pix (Chave: CNPJ XXXXXXXXXXXXXX)</p>
+                                        <p><img th:src="@{/images/banricompras.jpeg}" height="30px" width="30px"/>BanriCompras</p>
+                                        <p><img th:src="@{/images/elo.png}" height="30px" width="30px"/>Elo</p>
+                                        <p><img th:src="@{/images/mastercard.png}" height="30px" width="30px"/>Mastercard</p>
+                                        <p><img th:src="@{/images/hipercard.png}" height="30px"width="30px"/>Hipercard</p>
+                                        <p><img th:src="@{/images/visa.png}" height="30px" width="30px"/>Visa</p>
+                                    </div>
+                                </div>
+                                <div id = "menu2" class="col-sm-3 ms-5 border border-black">
+                                    <h4>Admin Entre Aqui:</h4>
+                                    <button type="submit" class="botaoEntrar" ><a th:href = "@{/logar}">Fazer Login</a></button>
+                                </div >  
+                            </div>
+                        </div>                        
+                <script>
+        // Função para esconder todos os conteúdos
+        function esconderTodosOsConteudos() {
+            document.getElementById('conteudo1').style.display = 'none';
+            document.getElementById('conteudo2').style.display = 'none';
+            document.getElementById('conteudo3').style.display = 'none';
+        }
+
+        // Adiciona eventos de clique aos botões
+        document.getElementById('btnProdutos').addEventListener('click', function () {
+            esconderTodosOsConteudos();
+            document.getElementById('conteudo1').style.display = 'block';
+        });
+
+        document.getElementById('btnHorarios').addEventListener('click', function () {
+            esconderTodosOsConteudos();
+            document.getElementById('conteudo2').style.display = 'block';
+        });
+
+        document.getElementById('btnInformacoes').addEventListener('click', function () {
+            esconderTodosOsConteudos();
+            document.getElementById('conteudo3').style.display = 'block';
+        });
+    </script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"> 
+    </body>
+</html>
