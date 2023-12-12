@@ -15,6 +15,6 @@ Bruno Golin Ferreira (eu mesmo).
 Um módulo web maven, para pedidos e informações de uma hamburgueria.
 
 -Funcionalidades do sistema (requisitos):
-Cadastrar um pedido;
-Cadastrar um cliente;
+Cadastrar um produto;
+Excluir ou atualizar um produto;
 Informar um cliente sobre determinada coisa (horário, contatos, etc).
