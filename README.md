@@ -17,4 +17,4 @@ Um módulo web maven, para pedidos e informações de uma hamburgueria.
 -Funcionalidades do sistema (requisitos):
 Cadastrar um produto;
 Excluir ou atualizar um produto;
-Informar um cliente sobre determinada coisa (horário, contatos, etc).
+Informar um cliente sobre determinada informação (horário, contatos, etc).
